@@ -105,7 +105,8 @@ end
 hobbit1 = Hobbit.new("Bilbo", "grumpy")
 p hobbit1
 hobbit2 = Hobbit.new("Frodo", "adventurous")
-p hobbit2
+p hobbit2.ring
+
 
 
 
