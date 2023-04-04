@@ -4,17 +4,22 @@
 # it should have a method called "say" that returns whatever string is passed in, with "*~*" at the beginning and end of the string
 
 class Unicorn
-    def initialize(name)
+    def initialize(name, color = "silver")
         @name = name
-        @color = "silver"
+        @color = color
     end
     def say 
-        return "*~* Unicorns DO exist *~*"
+        "*~* Unicorns DO exist *~*"
     end
+    
 end
 
 unicorn1 = Unicorn.new("Rick")
 p unicorn1 
+
+unicorn2 = Unicorn.new("Lisa", "orange")
+p unicorn2
+
 
 #  Write a class called Vampire
 #  it should have a dynamic name attribute
@@ -58,19 +63,21 @@ class Dragon
         @rider = rider
         @color = color
         @is_hungry = true
+        @counter = 0
     end
-    def eat(times)
-        if times == 4
-            is_hungry = false
-        end
+    def eat
+        @counter +=1
+        @is_hungry = false if @counter >= 4
     end
 end
 
 dragon1 = Dragon.new("Yip", "Yop", "Purple")
 p dragon1
-p dragon1.eat(4)
 
-        
+p dragon1.eat
+p dragon1.eat
+p dragon1.eat
+p dragon1.eat
 
 
 #  Write a Hobbit class
@@ -93,18 +100,22 @@ class Hobbit
         @has_ring = false
     end
     def celebrate_birthday
-        return age +=1
+        @age +=1
+        @is_adult = true if @age>= 33
+        @is_old = true if @age >= 101
     end
     def ring
-        if name = "Frodo"
+        if @name == "Frodo"
             has_ring = true
         end
     end
 end
 
+
 hobbit1 = Hobbit.new("Bilbo", "grumpy")
 p hobbit1
 hobbit2 = Hobbit.new("Frodo", "adventurous")
+p hobbit2
 p hobbit2.ring
 
 
